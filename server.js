@@ -1,6 +1,3 @@
-//import { get } from "express/lib/response";
-
-//import { coinFlip, coinFlips, flipACoin } from "./coin.mjs";
 import { coinFlip, coinFlips, flipACoin } from "./coin.mjs";
 import express from "express";
 import minimist from "minimist";
