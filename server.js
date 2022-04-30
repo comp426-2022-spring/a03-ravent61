@@ -23,7 +23,7 @@ app.get("/app/flip", (req, res, next) => {
 });
 
 app.get("/app/flips/:number", (req, res, next) => {
-  res.status(200).json(coinFlips(req.params.number));
+  res.status(200).json({ raw: coinFlips(req.params.number) });
 });
 
 app.get("/app/flip/call/heads", (req, res, next) => {
