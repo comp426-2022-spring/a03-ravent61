@@ -1,4 +1,4 @@
-import { coinFlip, coinFlips, flipACoin } from "./coin.mjs";
+import { coinFlip, coinFlips, countFlips, flipACoin } from "./coin.mjs";
 import express from "express";
 import minimist from "minimist";
 const app = express();
@@ -23,7 +23,9 @@ app.get("/app/flip", (req, res, next) => {
 });
 
 app.get("/app/flips/:number", (req, res, next) => {
-  res.status(200).json({ raw: coinFlips(req.params.number) });
+  const flips = coinFlips(req.params.number);
+  const summary = countFlips(flips);
+  res.status(200).json({ raw: flips, summary: summary });
 });
 
 app.get("/app/flip/call/heads", (req, res, next) => {
